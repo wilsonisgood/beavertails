@@ -4,5 +4,9 @@ package-lock.json
 shs/
 # *_one/
 conn.json
-dolly/
+# dolly/
 pm2/
+
+
+dolly/WC_AAA_one/DB_MIRROR/*
+!dolly/WC_AAA_one/DB_MIRROR/flywee/

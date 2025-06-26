@@ -56,10 +56,10 @@ This tool aims to solve more specific problems:
 Set the target connection
 #### Output location
 Folders are created based on the `connectionName` in dbConfig.js, organized by database:
-- `WC-AAA/$DATABASE/EVENT/$EV_NAME`
-- `WC-AAA/$DATABASE/StoreProcedure/$SP_NAME`
-- `WC-AAA/$DATABASE/TABLE/$TB_NAME`
-- `WC-AAA/$DATABASE/VIEW/$V_NAME`
+- `WC-AAA_one/DB_MIRROR/$DATABASE/EVENT/$EV_NAME`
+- `WC-AAA_one/DB_MIRROR/$DATABASE/StoreProcedure/$SP_NAME`
+- `WC-AAA_one/DB_MIRROR/$DATABASE/TABLE/$TB_NAME`
+- `WC-AAA_one/DB_MIRROR/$DATABASE/VIEW/$V_NAME`
 ### beaver.config.js
 Select the target connection: WC-AAA | prod-aaa | prod-bbb
 ### start.js
@@ -67,11 +67,17 @@ Select the target to fetch: event | table | sp | view
 
 ## Required permissions to fetch targets
 DB admin must grant permissions for show create event, show create view, etc.
+
 If using a non-admin account, some items cannot be backed up.
-  VIEWS: 
-    `SELECT * FROM information_schema.VIEWS`
+
+  - VIEWS
+
+    - `SELECT * FROM information_schema.VIEWS`
+
       This will list all views
-    `SHOW CREATE VIEW ${schemaName}.${viewName}`
+
+    - `SHOW CREATE VIEW ${schemaName}.${viewName}`
+
       But may result in a permission error:
         ```
           1142 - SHOW VIEW command denied to user 'JJ'@'1.0.0.127' for table 'ys_Account', Time: 0.490000s
