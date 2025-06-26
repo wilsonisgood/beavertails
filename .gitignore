@@ -1,0 +1,8 @@
+.vscode/
+node_modules/
+package-lock.json
+shs/
+# *_one/
+conn.json
+dolly/
+pm2/
